@@ -12,7 +12,7 @@
   grid-template-columns: minmax(auto, 375px) auto;
   grid-gap: 20px 18px;
   padding: 0;
-  margin: 22px 0 auto;
+  margin: 22px 20px auto;
   align-items: center;
 }
 
