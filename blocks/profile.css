@@ -12,7 +12,8 @@
   grid-template-columns: minmax(auto, 375px) auto;
   grid-gap: 20px 18px;
   padding: 0;
-  margin: 0;
+  margin: 22px 0 auto;
+  align-items: center;
 }
 
 .profile__edit-button {
@@ -37,8 +38,9 @@
   background: transparent url(../images/PlusWhite.svg) center no-repeat;
   width: 150px;
   height: 50px;
+  border-radius: 2px;
   margin-left: auto;
-  border: 1px #fff solid;
+  border: 2px #fff solid;
 }
 
 .profile__add-button:hover {
@@ -75,14 +77,17 @@
   width: 120px;
   border-radius: 50%;
   object-fit: cover;
-  background-position: center;
-  margin-right: 24px;
+  object-position: 50% 50%;
 }
 
 @media screen and (max-width: 480px) {
   .profile {
     background-color: black;
     flex-direction: column;
+  }
+
+  .profile__image {
+    justify-content: center;
   }
 
   .profile__info {
@@ -95,10 +100,25 @@
   .profile__description {
     width: 100%;
     text-align: center;
+    padding-bottom: 36px;
   }
 
   .profile__add-button {
     margin: 0;
     width: 100%;
+    cursor: pointer;
+    max-width: 282px;
+  }
+
+  .profile__title {
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 26.63px;
+    text-align: center;
+  }
+
+  .profile__edit-button {
+    width: 19px;
+    height: 19px;
   }
 }

@@ -1,6 +1,26 @@
 .header {
-  margin-top: 45px;
-  width: 880px;
-  height: 74px;
-  border-bottom: 1px solid #545454;
+  display: flex;
+  max-width: 880px;
+  border-bottom-color: rgba(84, 84, 84, 0.7);
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  box-sizing: border-box;
+}
+
+.header__logo {
+  width: 173px;
+  height: 33px;
+  padding: 28px 27px;
+}
+
+@media screen and (max-width: 620px) {
+  .header {
+    margin: 0 auto;
+    padding: 28px, 32px, 27px;
+  }
+
+  .header__logo {
+    width: 126px;
+    height: 24px;
+  }
 }
