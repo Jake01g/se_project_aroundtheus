@@ -36,4 +36,10 @@ Svg images:
 - ![Profile add button](https://github.com/Jake01g/se_project_aroundtheus/blob/main/images/PlusWhite.svg)
 - ![Card heart Vector](https://github.com/Jake01g/se_project_aroundtheus/blob/main/images/VectorBlack.svg)
 
-#Project Video and Page Links: Video: https://drive.google.com/file/d/1f9pRt5XRr9xrbK5WoU2T3LI2mvDTYRd3/view?usp=sharing Github Page: https://jake01g.github.io/se_project_aroundtheus/
+#Project Video and Page Links: Video:
+
+Video 1 (overview): https://drive.google.com/file/d/1cSXHuNPVdmY8D_wChvz6kLQgOlvBClCA/view?usp=drive_link
+
+Video 2 (Had to split up) https://drive.google.com/file/d/1sGRj-jmRJnK7bCBJahWJY0yVW_BJLspj/view?usp=drive_link
+
+Github Page: https://jake01g.github.io/se_project_aroundtheus/
