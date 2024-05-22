@@ -39,7 +39,6 @@
   height: 50px;
   border-radius: 2px;
   margin-left: auto;
-  margin-right: 39px;
   border: 2px #fff solid;
   cursor: pointer;
 }
@@ -79,7 +78,7 @@
   border-radius: 50%;
   object-fit: cover;
   object-position: 50% 50%;
-  padding-right: 20px;
+  margin-right: 20px;
 }
 
 @media screen and (max-width: 480px) {
