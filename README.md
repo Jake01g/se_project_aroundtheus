@@ -1,6 +1,6 @@
-# Project 3: Around The U.S.
+# Project 3: Around The U.S. Jake Glans
 
-### Overview
+Overview
 
 - Intro
 - Figma
@@ -8,21 +8,32 @@
 
 **Intro**
 
-This project is made so all the elements are displayed correctly on popular screen sizes. We recommend investing more time in completing this project, since it's more difficult than previous ones.
+This project ensures that all elements are correctly displayed on popular screen sizes using advanced HTML and CSS. It incorporates grid and layouts and Display:flex, responsive design principles such as rem, max-width, and percentages, as well as advanced Git and Bash techniques. Figma was utilized in order to create a polished design with specific specifications. Future improvements could include making the site more accessible to colorblind and visually impaired individuals by adding more color schemes, or perhaps dark mode, allowing users to enlarge images or text for better readability, linking images or place names to informational websites, and adding a sites that include sightseeing reviews.
 
 **Figma**
 
-- [Link to the project on Figma](https://www.figma.com/design/Es8zZP3ARGH9JGcw60i3OD/Sprint-3_-Around-the-US?node-id=6432-147&t=ltnzP0Po5OSTtnfN-0)
+- [Link to the project on Figma](https://www.figma.com/design/Es8zZP3ARGH9JGcw60i3OD/Sprint-3_-Around-the-US?node-id=6432-203&t=cirjhRvksptyawbI-0)
 
 **Images**
 
-The way you'll do this at work is by exporting images directly from Figma — we recommend doing that to practice more. Don't forget to optimize them [here](https://tinypng.com/), so your project loads faster.
+Card Images:
 
-Good luck and have fun!
+- ![Image of Bald Mountains](https://github.com/Jake01g/se_project_aroundtheus/blob/main/images/bald-mountains.jpg)
+- ![Image of Lake Louise](https://github.com/Jake01g/se_project_aroundtheus/blob/main/images/lake-louise.jpg)
+- ![Image of Lake Lago](https://github.com/Jake01g/se_project_aroundtheus/blob/main/images/lago.jpg)
+- ![Image of Latemar](https://github.com/Jake01g/se_project_aroundtheus/blob/main/images/latemar.jpg)
+- ![Image of Vanoise National Park](https://github.com/Jake01g/se_project_aroundtheus/blob/main/images/vanoise.jpg)
+- ![Image of Yosemite](https://github.com/Jake01g/se_project_aroundtheus/blob/main/images/yosemite.jpg)
 
-#The Project overview:
-##This project is a responsive webpage where all elements are displayed correctly on various screen sizes using HTML/CSS with new techniques on positioning.
+  Images:
 
-#Intro ##This project is made so all the elements are displayed correctly on popular screen sizes. We recommend investing more time in completing this project, since it's more difficult than previous ones.
+- ![Image of the Avatar](https://github.com/Jake01g/se_project_aroundtheus/blob/main/images/jacques-cousteau.jpg)
+
+Svg images:
+
+- ![Around the U.S logo](https://github.com/Jake01g/se_project_aroundtheus/blob/main/images/logo.svg)
+- ![Profile edit button](https://github.com/Jake01g/se_project_aroundtheus/blob/main/images/MarkerWhite.svg)
+- ![Profile add button](https://github.com/Jake01g/se_project_aroundtheus/blob/main/images/PlusWhite.svg)
+- ![Card heart Vector](https://github.com/Jake01g/se_project_aroundtheus/blob/main/images/VectorBlack.svg)
 
 #Project Video and Page Links: Video: https://drive.google.com/file/d/1f9pRt5XRr9xrbK5WoU2T3LI2mvDTYRd3/view?usp=sharing Github Page: https://jake01g.github.io/se_project_aroundtheus/
