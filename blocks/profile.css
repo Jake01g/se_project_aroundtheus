@@ -39,6 +39,7 @@
   height: 50px;
   border-radius: 2px;
   margin-left: auto;
+  margin-right: 39px;
   border: 2px #fff solid;
   cursor: pointer;
 }
@@ -120,7 +121,7 @@
     font-weight: 500;
     line-height: 26.63px;
     text-align: center;
-    margin-right: 10px;
+    margin-right: 1;
   }
 
   .profile__edit-button {

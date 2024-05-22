@@ -1,8 +1,6 @@
 .page {
   background-color: black;
   color: white;
-  margin: 0;
-  padding: 0;
   align-items: center;
 }
 
@@ -11,6 +9,8 @@
   width: 100%;
   position: relative;
   margin: 0 auto;
+  padding-left: 19px;
+  padding-right: 19px;
 }
 
 .page__content {
