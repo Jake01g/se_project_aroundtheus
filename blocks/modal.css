@@ -38,7 +38,7 @@
   border: #000;
 }
 
-.modal__input-title {
+.modal__input {
   width: 358px;
   padding: 0;
   border-style: none;
@@ -50,18 +50,8 @@
   text-align: left;
 }
 
-.modal__input-description {
-  width: 358px;
-  padding: 0;
-  border-style: none;
-  border-bottom: solid rgba(0, 0, 0, 0.2) 1px;
+.modal__input:last-of-type {
   margin-top: 29.74px;
-  margin-bottom: 48px;
-  font-family: "Inter", Arial, sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 16.94px;
-  text-align: left;
 }
 
 .modal__close {
@@ -94,6 +84,7 @@
   line-height: 21.78px;
   font-weight: 400;
   cursor: pointer;
+  margin-top: 48px;
 }
 
 .modal__button:hover {
