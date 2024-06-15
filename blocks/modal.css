@@ -119,15 +119,10 @@
     margin-bottom: 0;
   }
 
-  .modal__input-description {
+  .modal__input {
     font-size: 14px;
     max-width: 238px;
     margin-bottom: 45px;
-  }
-
-  .modal__input-title {
-    font-size: 14px;
-    max-width: 238px;
   }
 
   .modal__button {
