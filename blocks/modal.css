@@ -122,12 +122,15 @@
   .modal__input {
     font-size: 14px;
     max-width: 238px;
-    margin-bottom: 45px;
   }
 
+  .modal__input:last-of-type {
+    margin-top: 30px;
+  }
   .modal__button {
     width: 100%;
     font-size: 14px;
     text-align: center;
+    margin-top: 45px;
   }
 }
