@@ -48,32 +48,55 @@
       <footer class="footer page__section">
         <p class="footer__copyright">&#169; 2024 Around the U.S.</p>
       </footer>
-    </div>
-
-    <div class="modal" id="profile-edit-modal">
-      <div class="modal__container">
-        <button class="modal__close" type="button"></button>
-        <p class="modal__heading">Edit profile</p>
-        <form class="modal__form" id="modal-form">
-          <input
-            type="text"
-            name="title"
-            class="modal__input"
-            placeholder="Name"
-            id="profile-title-input"
-          />
-          <input
-            type="text"
-            name="description"
-            class="modal__input"
-            placeholder="Description"
-            id="profile-description-input"
-          />
-          <button class="button modal__button" type="submit">Save</button>
-        </form>
+      <!--- Edit Modal-->
+      <div class="modal" id="profile-edit-modal">
+        <div class="modal__container">
+          <button class="modal__close" type="button"></button>
+          <p class="modal__heading">Edit profile</p>
+          <form class="modal__form" id="modal-form">
+            <input
+              type="text"
+              name="name"
+              class="modal__input"
+              placeholder="Name"
+              id="profile-title-input"
+            />
+            <input
+              type="text"
+              name="description"
+              class="modal__input"
+              placeholder="Description"
+              id="profile-description-input"
+            />
+            <button class="button modal__button" type="submit">Save</button>
+          </form>
+        </div>
+      </div>
+      <!-- Add Card Modal -->
+      <div class="modal" id="add-card-modal">
+        <div class="modal__container">
+          <button class="modal__close" type="button"></button>
+          <p class="modal__heading">New Place</p>
+          <form class="modal__form" id="add-card-form">
+            <input
+              type="text"
+              name="title"
+              class="modal__input modal__input-title"
+              placeholder="Title"
+              id="profile-title-input"
+            />
+            <input
+              type="text"
+              name="url"
+              class="modal__input modal__input-url"
+              placeholder="Image URL"
+              id="profile-description-input"
+            />
+            <button class="button modal__button" type="submit">Save</button>
+          </form>
+        </div>
       </div>
     </div>
-
     <template id="card-template">
       <li class="card">
         <img class="card__image" src="" alt="" />
