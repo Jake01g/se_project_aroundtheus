@@ -8,10 +8,15 @@
   z-index: 99;
   display: none;
   padding: 0 19px;
+  visibility: hidden;
+  opacity: 0;
 }
 
 .modal__opened {
   display: flex;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
 }
 
 .modal__container {
@@ -23,6 +28,24 @@
   border-radius: 10px;
   width: 358px;
   height: 258px;
+}
+
+.modal__preview-container {
+  position: relative;
+  margin: auto;
+}
+
+.modal__image {
+  max-height: 75vh;
+  max-width: 75vw;
+}
+
+.modal__title {
+  font-size: 12px;
+  font-weight: 400;
+  font-family: "Inter", Arial, sans-serif;
+  line-height: 14.52px;
+  color: #fff;
 }
 
 .modal__heading {
