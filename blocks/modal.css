@@ -8,12 +8,13 @@
   z-index: 99;
   display: none;
   padding: 0 19px;
+  display: flex;
   visibility: hidden;
   opacity: 0;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
 }
 
 .modal__opened {
-  display: flex;
   visibility: visible;
   opacity: 1;
   transition: opacity 0.6s ease, visibility 0.6s ease;

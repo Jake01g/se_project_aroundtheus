@@ -104,6 +104,15 @@ function getCardElement(cardData) {
   return cardElement;
 }
 
+document.addEventListener("DOMContentLoaded", (event) => {
+  const modal = document.querySelector(".modal");
+  const openButton = document.querySelector(".modal-close");
+  const closeButton = document.querySelector("#close-modal-button");
+
+  console.log("Modal:", modal);
+  console.log("Open Button:", openButton);
+  console.log("Close Button:", closeButton);
+});
 /* -------------------------------------------------------------------------- */
 /*                               Event Handlers                               */
 /* -------------------------------------------------------------------------- */
