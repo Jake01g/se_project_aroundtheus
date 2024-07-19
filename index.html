@@ -54,23 +54,36 @@
           <button class="modal__close" type="button"></button>
           <h3 class="modal__heading">Edit profile</h3>
           <form class="modal__form" id="modal-form">
-            <input
-              type="text"
-              name="name"
-              class="modal__input"
-              placeholder="Name"
-              id="profile-title-input"
-              required
-            />
-            <input
-              type="text"
-              name="description"
-              class="modal__input"
-              placeholder="Description"
-              id="profile-description-input"
-              required
-            />
-            <button class="button modal__button" type="submit">Save</button>
+            <label class="modal__label">
+              <input
+                type="text"
+                name="name"
+                class="modal__input modal__input-type-name"
+                placeholder="Name"
+                id="profile-title-input"
+                minlength="2"
+                maxlength="40"
+                required
+              />
+              <span class="modal__error" id="profile-title-input-error"></span>
+            </label>
+            <label class="modal__label">
+              <input
+                type="text"
+                name="description"
+                class="modal__input modal__input-type-description"
+                placeholder="Description"
+                id="profile-description-input"
+                minlength="2"
+                maxlength="200"
+                required
+              />
+              <span
+                class="modal__error"
+                id="profile-description-input-error"
+              ></span>
+            </label>
+            <button class="modal__button" type="submit" disabled>Save</button>
           </form>
         </div>
       </div>
@@ -85,18 +98,30 @@
               name="title"
               class="modal__input modal__input-title"
               placeholder="Title"
-              id="profile-title-input"
+              id="profile-card-input"
+              minlength="2"
+              maxlength="40"
               required
             />
+            <span class="modal__error" id="profile-card-input-error"></span>
             <input
               type="url"
               name="url"
               class="modal__input modal__input-url"
               placeholder="Image URL"
-              id="profile-description-input"
+              id="profile-url-input"
+              minlength="2"
+              maxlength="200"
               required
             />
-            <button class="button modal__button" type="submit">Create</button>
+            <span class="modal__error" id="profile-url-input-error"></span>
+            <button
+              class="button modal__button modal__button-disabled"
+              type="submit"
+              disabled
+            >
+              Save
+            </button>
           </form>
         </div>
       </div>
@@ -120,5 +145,6 @@
     </template>
 
     <script src="./scripts/index.js" defer></script>
+    <script src="./scripts/validation.js" defer></script>
   </body>
 </html>
