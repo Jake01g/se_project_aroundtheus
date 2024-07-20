@@ -195,12 +195,12 @@
   }
 
   .modal__input:last-of-type {
-    margin-top: 30px;
+    margin-top: 17px;
   }
 
   .modal__button {
     font-size: 14px;
     text-align: center;
-    margin-top: 45px;
+    margin-top: 32px;
   }
 }
