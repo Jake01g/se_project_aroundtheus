@@ -31,8 +31,6 @@ const initialCards = [
 const profileEditButton = document.querySelector("#profile-edit-button");
 const profileEditModal = document.querySelector("#profile-edit-modal");
 const addCardModal = document.querySelector("#add-card-modal");
-const profileEditCloseButton = profileEditModal.querySelector(".modal__close");
-const addCardModalCloseButton = addCardModal.querySelector(".modal__close");
 const profileTitle = document.querySelector(".profile__title");
 const profileDescription = document.querySelector(".profile__description");
 const profileTitleInput = document.querySelector("#profile-title-input");
@@ -45,22 +43,15 @@ const addCardFormElement = addCardModal.querySelector(".modal__form");
 const cardListEl = document.querySelector(".cards__list");
 const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
-
 const cardTitleInput = addCardFormElement.querySelector(".modal__input-title");
 const cardUrlInput = addCardFormElement.querySelector(".modal__input-url");
-const previewModalClose = document.querySelector("#preview-modal-close");
+const previewImage = document.querySelector(".modal__image");
+const previewModal = document.querySelector("#preview-modal");
+const previewTitle = document.querySelector(".modal__title");
 
 /* -------------------------------------------------------------------------- */
 /*                                  Functions                                 */
 /* -------------------------------------------------------------------------- */
-function closePopup(modal) {
-  modal.classList.remove("modal_opened");
-}
-
-function openModal(modal) {
-  modal.classList.add("modal_opened");
-}
-
 function renderCard(cardData, wrapper) {
   const cardElement = getCardElement(cardData);
   wrapper.prepend(cardElement);
@@ -74,9 +65,6 @@ function getCardElement(cardData) {
   const cardTitleEl = cardElement.querySelector(".card__title");
   const likeButton = cardElement.querySelector(".card__like-button");
   const cardDeleteButton = cardElement.querySelector(".card__delete-button");
-  const previewImage = document.querySelector(".modal__image");
-  const previewModal = document.querySelector("#preview-modal");
-  const previewTitle = document.querySelector(".modal__title");
 
   cardDeleteButton.addEventListener("click", (e) => {
     cardElement.remove();
@@ -87,10 +75,6 @@ function getCardElement(cardData) {
     previewImage.src = cardData.link;
     previewImage.alt = cardData.name;
     previewTitle.textContent = cardData.name;
-  });
-
-  previewModalClose.addEventListener("click", () => {
-    closePopup(previewModal);
   });
 
   //smooth transition for image modal - use visibility hidden not display none
@@ -104,13 +88,6 @@ function getCardElement(cardData) {
   return cardElement;
 }
 
-const modal = document.querySelector(".modal");
-const openButton = document.querySelector(".modal-close");
-const closeButton = document.querySelector("#close-modal-button");
-
-console.log("Modal:", modal);
-console.log("Open Button:", openButton);
-console.log("Close Button:", closeButton);
 /* -------------------------------------------------------------------------- */
 /*                               Event Handlers                               */
 /* -------------------------------------------------------------------------- */
@@ -143,15 +120,8 @@ profileEditButton.addEventListener("click", () => {
   openModal(profileEditModal);
 });
 
-profileEditCloseButton.addEventListener("click", () =>
-  closePopup(profileEditModal)
-);
-
 // add new card
 addNewCardButton.addEventListener("click", () => openModal(addCardModal));
-addCardModalCloseButton.addEventListener("click", () =>
-  closePopup(addCardModal)
-);
 
 const modals = document.querySelectorAll(".modal");
 modals.forEach((modal) => {
@@ -180,3 +150,9 @@ function closePopup(modal) {
   modal.classList.remove("modal_opened");
   document.removeEventListener("keydown", closeModalESC);
 }
+
+const closeButtons = document.querySelectorAll(".modal__close");
+closeButtons.forEach((button) => {
+  const popup = button.closest(".modal");
+  button.addEventListener("click", () => closePopup(popup));
+});

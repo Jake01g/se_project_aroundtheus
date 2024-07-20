@@ -23,28 +23,26 @@ function hasInvalidInputs(inputList) {
   return !inputList.every((inputEl) => inputEl.validity.valid);
 }
 
-function enableButton(submitButton) {
+function disableButton(submitButton) {
   const { inactiveButtonClass } = config;
   submitButton.classList.add(inactiveButtonClass);
   submitButton.disabled = true;
   return;
 }
 
-function disableButton(submitButton) {
-  const { inactiveButtonClass } = options;
+function enableButton(submitButton) {
+  const { inactiveButtonClass } = config;
   submitButton.classList.remove(inactiveButtonClass);
   submitButton.disabled = false;
   return;
 }
 
-function toggleButtonState(inputEls, submitButton, { inactiveButtonClass }) {
+function toggleButtonState(inputEls, submitButton) {
   if (hasInvalidInputs(inputEls)) {
-    submitButton.classList.add(inactiveButtonClass);
-    submitButton.disabled = true;
+    disableButton(submitButton);
     return;
   }
-  submitButton.classList.remove(inactiveButtonClass);
-  submitButton.disabled = false;
+  enableButton(submitButton);
 }
 
 function setEventListeners(formEl, options) {
