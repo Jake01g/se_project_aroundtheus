@@ -32,8 +32,16 @@ const cardData = {
   link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
 };
 
-const card = new Card(cardData, "#card-template");
-card.getView();
+const cardContainer = document.querySelector(".cards__list");
+
+initialCards.forEach((cardData) => {
+  const card = new Card(cardData, "#card-template", () => {
+    console.log("Image clicked!", cardData);
+  });
+
+  const cardElement = card.getView();
+  cardContainer.append(cardElement);
+});
 
 /* -------------------------------------------------------------------------- */
 /*                                  Elements                                  */
@@ -62,23 +70,20 @@ const previewTitle = document.querySelector(".modal__title");
 /* -------------------------------------------------------------------------- */
 /*                                  Functions                                 */
 /* -------------------------------------------------------------------------- */
-function renderCard(cardData, wrapper) {
-  const cardElement = getCardElement(cardData);
-  wrapper.prepend(cardElement);
-}
+/*
 
 initialCards.forEach((cardData) => renderCard(cardData, cardListEl));
-
+*/
 function getCardElement(cardData) {
   const cardElement = cardTemplate.cloneNode(true);
   const cardImageEl = cardElement.querySelector(".card__image");
   const cardTitleEl = cardElement.querySelector(".card__title");
   const likeButton = cardElement.querySelector(".card__like-button");
-  const cardDeleteButton = cardElement.querySelector(".card__delete-button");
+  //const cardDeleteButton = cardElement.querySelector(".card__delete-button");
 
-  cardDeleteButton.addEventListener("click", (e) => {
-    cardElement.remove();
-  });
+  //cardDeleteButton.addEventListener("click", (e) => {
+  //  cardElement.remove();
+  // });
 
   cardImageEl.addEventListener("click", () => {
     openModal(previewModal);
@@ -86,8 +91,6 @@ function getCardElement(cardData) {
     previewImage.alt = cardData.name;
     previewTitle.textContent = cardData.name;
   });
-
-  //smooth transition for image modal - use visibility hidden not display none
 
   likeButton.addEventListener("click", () => {
     likeButton.classList.toggle("card__like-button_active");
