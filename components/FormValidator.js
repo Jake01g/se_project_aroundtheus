@@ -1,7 +1,7 @@
 export default class FormValidator {
   constructor(settings, formElement) {
     this._inputSelector = settings.inputSelector;
-    this._submitButtonSelector = settings.submitbuttonSelector;
+    this._submitButtonSelector = settings.submitButtonSelector;
     this._inactiveButtonClass = settings.inactiveButtonClass;
     this._inputErrorClass = settings.inputErrorClass;
     this._errorClass = settings.errorClass;
@@ -10,7 +10,7 @@ export default class FormValidator {
   }
 
   _showInputError() {
-    const errorElement
+    const errorElement 
   }
 
 
@@ -39,4 +39,4 @@ export default class FormValidator {
 }
 
 const editFormValidator = new FormValidator();
-editFormValidator.enableValidation();
+editFormValidator.enableValidation(); 

@@ -26,17 +26,21 @@ const initialCards = [
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
   },
 ];
-
+/*
 const cardData = {
   name: "Yosemite Valley",
   link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
 };
-
+*/
 const cardContainer = document.querySelector(".cards__list");
 
 initialCards.forEach((cardData) => {
   const card = new Card(cardData, "#card-template", () => {
     console.log("Image clicked!", cardData);
+    openModal(previewModal);
+    previewImage.src = cardData.link;
+    previewImage.alt = cardData.name;
+    previewTitle.textContent = cardData.name;
   });
 
   const cardElement = card.getView();
@@ -84,13 +88,6 @@ function getCardElement(cardData) {
   //cardDeleteButton.addEventListener("click", (e) => {
   //  cardElement.remove();
   // });
-
-  cardImageEl.addEventListener("click", () => {
-    openModal(previewModal);
-    previewImage.src = cardData.link;
-    previewImage.alt = cardData.name;
-    previewTitle.textContent = cardData.name;
-  });
 
   likeButton.addEventListener("click", () => {
     likeButton.classList.toggle("card__like-button_active");
