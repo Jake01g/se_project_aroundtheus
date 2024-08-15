@@ -1,5 +1,15 @@
 import Card from "../components/Card.js";
 
+import FormValidator from "../components/FormValidator.js";
+
+const config = {
+  inputSelector: ".modal__input",
+  submitButtonSelector: ".modal__button",
+  inactiveButtonClass: "modal__button-disabled",
+  inputErrorClass: "modal__input_type_error",
+  errorClass: "modal__error_visible",
+};
+
 const initialCards = [
   {
     name: "Lago di Braies",
@@ -26,12 +36,7 @@ const initialCards = [
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
   },
 ];
-/*
-const cardData = {
-  name: "Yosemite Valley",
-  link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
-};
-*/
+
 const cardContainer = document.querySelector(".cards__list");
 
 initialCards.forEach((cardData) => {
@@ -74,10 +79,10 @@ const previewTitle = document.querySelector(".modal__title");
 /* -------------------------------------------------------------------------- */
 /*                                  Functions                                 */
 /* -------------------------------------------------------------------------- */
-/*
 
-initialCards.forEach((cardData) => renderCard(cardData, cardListEl));
-*/
+const editFormValidator = new FormValidator(config, addCardFormElement);
+editFormValidator.enableValidation();
+
 function getCardElement(cardData) {
   const cardElement = cardTemplate.cloneNode(true);
   const cardImageEl = cardElement.querySelector(".card__image");
@@ -87,7 +92,6 @@ function getCardElement(cardData) {
 
   //cardDeleteButton.addEventListener("click", (e) => {
   //  cardElement.remove();
-  // });
 
   likeButton.addEventListener("click", () => {
     likeButton.classList.toggle("card__like-button_active");
@@ -101,6 +105,7 @@ function getCardElement(cardData) {
 /* -------------------------------------------------------------------------- */
 /*                               Event Handlers                               */
 /* -------------------------------------------------------------------------- */
+initialCards.forEach((cardData) => renderCard(cardData, cardListEl));
 
 function handleProfileFormSubmit(e) {
   e.preventDefault();
@@ -113,9 +118,13 @@ function handleAddCardFormSubmit(e) {
   e.preventDefault();
   const name = cardTitleInput.value;
   const link = cardUrlInput.value;
-  renderCard({ name, link }, cardListEl);
-  addCardFormElement.reset();
-  closePopup(addCardModal);
+  renderCard({
+    name,
+    link,
+  });
+  closePopup(addCardFormElement);
+  e.target.reset();
+  editFormValidator.toggleButtonState();
 }
 
 /* -------------------------------------------------------------------------- */
