@@ -11,22 +11,21 @@
     <meta name="keywords" content="USA, Nature, Costeau, photography" />
     <meta name="author" content="Jake Glans" />
     <title>Around the U.S.</title>
-    <link rel="stylesheet" href="./pages/index.css" />
-    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="shortcut icon" href="./images/favicon.ico" />
   </head>
   <body class="page">
     <div class="page__content">
       <header class="header page__section">
         <img
-          src="./images/logo.svg"
+          src="<%=require('./images/logo.svg')%>"
           alt="Around the U.S. Logo"
           class="header__logo"
         />
       </header>
-      <main class="content">
+      <main class="main">
         <section class="profile page__section">
           <img
-            src="./images/jacques-cousteau.jpg"
+            src="<%=require('./images/jacques-cousteau.jpg')%>"
             alt="avatar"
             class="profile__image"
           />
@@ -133,7 +132,7 @@
         </div>
       </div>
     </div>
-    <script defer src="./pages/index.js" type="module"></script>
+    <!-- <script defer src="./pages/index.js" type="module"></script>-->
     <template id="card-template">
       <li class="card">
         <img class="card__image" src="" alt="" />

@@ -1,14 +1,17 @@
 export default class FormValidator {
   constructor(settings, formElement) {
+    this._inputSelector = settings.inputSelector;
+    this._submitButtonSelector = settings.submitButtonSelector;
     this._inactiveButtonClass = settings.inactiveButtonClass;
     this._inputErrorClass = settings.inputErrorClass;
     this._errorClass = settings.errorClass;
     this._form = formElement;
     this._submitBtn = this._form.querySelector(settings.submitButtonSelector);
     this._inputEls = [...this._form.querySelectorAll(settings.inputSelector)];
+    this._settings = settings;
   }
 
-  toggleButtonState() {
+  _toggleButtonState() {
     if (this._hasInvalidInput()) {
       this._submitBtn.classList.add(this._inactiveButtonClass);
       this._submitBtn.disabled = true;
@@ -37,7 +40,7 @@ export default class FormValidator {
       inputEL.addEventListener("input", () => {
         console.log("keystroke");
         this._checkInputValidity(inputEL);
-        this.toggleButtonState();
+        this._toggleButtonState();
       });
     });
   }
@@ -60,13 +63,18 @@ export default class FormValidator {
       e.preventDefault();
     });
     this._setEventListeners();
+    this._toggleButtonState();
+  }
+
+  resetValidation() {
+    this._toggleButtonState();
+    this._inputEls.forEach((form) => {
+      this._hideInputError(form);
+    });
+  }
+
+  disableSubmitButton() {
+    this._submitBtn.classList.add(this._settings.inactiveButtonClass);
+    this._submitBtn.disabled = true;
   }
 }
-
-const config = {
-  inputSelector: ".modal__input",
-  submitButtonSelector: ".modal__button",
-  inactiveButtonClass: "modal__button-disabled",
-  inputErrorClass: "modal__input_type_error",
-  errorClass: "modal__error_visible",
-};
