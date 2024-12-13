@@ -4,7 +4,15 @@ class Api {
   }
 
   getInitialCards() {
-    // ...
+    return fetch("https://around-api.en.tripleten-services.com/v1/cards", {
+      headers: {
+        authorization: "00971118-9fba-418f-9a4a-7fa64165e057",
+      },
+    }).then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+    });
   }
 
   // other methods for working with the API
@@ -17,19 +25,6 @@ const api = new Api({
     "Content-Type": "application/json",
   },
 });
-
-getInitialCards() {
-    return fetch("https://around-api.en.tripleten-services.com/v1/cards", {
-      headers: {
-        authorization: "00971118-9fba-418f-9a4a-7fa64165e057"
-      }
-    })
-      .then(res => {
-        if (res.ok) {
-          return res.json();
-        }
-      });
-  }
 
 /*
 user	
