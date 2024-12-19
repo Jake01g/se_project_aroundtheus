@@ -3,7 +3,7 @@ export default class Api {
     // constructor body
   }
 
-  async getInitialCards() {
+  getInitialCards() {
     const res = await fetch(
       "https://around-api.en.tripleten-services.com/v1/cards",
       {
@@ -20,7 +20,7 @@ export default class Api {
 
   // other methods for working with the API
 }
-getInitialCards();
+
 
 const api = new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1",
@@ -28,6 +28,14 @@ const api = new Api({
     authorization: "00971118-9fba-418f-9a4a-7fa64165e057",
     "Content-Type": "application/json",
   },
+});
+
+api.getInitialCards()
+.then((result) => {
+  // process the result
+})
+.catch((err) => {
+  console.error(err); // log the error to the console
 });
 
 /*
