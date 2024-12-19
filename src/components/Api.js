@@ -4,23 +4,21 @@ export default class Api {
   }
 
   getInitialCards() {
-    const res = await fetch(
-      "https://around-api.en.tripleten-services.com/v1/cards",
-      {
-        headers: {
-          authorization: "00971118-9fba-418f-9a4a-7fa64165e057",
-        },
+    return fetch("https://around-api.en.tripleten-services.com/v1", {
+      headers: {
+        authorization: "c56e30dc-2883-4270-a59e-b2f7bae969c6",
+      },
+    }).then((res) => {
+      if (res.ok) {
+        return res.json();
       }
-    );
-    if (res.ok) {
-      return res.json();
-    }
-    return await Promise.reject(`Error: ${res.status}`);
+      // if the server returns an error, reject the promise
+      return Promise.reject(`Error: ${res.status}`);
+    });
   }
 
   // other methods for working with the API
 }
-
 
 const api = new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1",
@@ -30,13 +28,14 @@ const api = new Api({
   },
 });
 
-api.getInitialCards()
-.then((result) => {
-  // process the result
-})
-.catch((err) => {
-  console.error(err); // log the error to the console
-});
+api
+  .getInitialCards()
+  .then((result) => {
+    // process the result
+  })
+  .catch((err) => {
+    console.error(err); // log the error to the console
+  });
 
 /*
 user	
