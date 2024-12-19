@@ -3,20 +3,24 @@ export default class Api {
     // constructor body
   }
 
-  getInitialCards() {
-    return fetch("https://around-api.en.tripleten-services.com/v1/cards", {
-      headers: {
-        authorization: "00971118-9fba-418f-9a4a-7fa64165e057",
-      },
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
+  async getInitialCards() {
+    const res = await fetch(
+      "https://around-api.en.tripleten-services.com/v1/cards",
+      {
+        headers: {
+          authorization: "00971118-9fba-418f-9a4a-7fa64165e057",
+        },
       }
-    });
+    );
+    if (res.ok) {
+      return res.json();
+    }
+    return await Promise.reject(`Error: ${res.status}`);
   }
 
   // other methods for working with the API
 }
+getInitialCards();
 
 const api = new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1",
