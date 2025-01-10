@@ -12,6 +12,7 @@ import {
 import PopupWithForm from "../components/PopupWithForm.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import UserInfo from "../components/UserInfo.js";
+import { api } from "../components/Api.js";
 
 /* -------------------------------------------------------------------------- */
 /*                                  Elements                                  */
@@ -100,3 +101,12 @@ const userInfo = new UserInfo({
   userName: profileName,
   userJob: profileDescription,
 });
+
+api
+  .getInitialCards()
+  .then((result) => {
+    console.log(result);
+  })
+  .catch((err) => {
+    console.error(err); // log the error to the console
+  });
