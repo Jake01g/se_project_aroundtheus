@@ -110,3 +110,30 @@ api
   .catch((err) => {
     console.error(err); // log the error to the console
   });
+
+api
+  .getUserinfo()
+  .then((result) => {
+    console.log(result);
+  })
+  .catch((err) => {
+    console.error(err); // log the error to the console
+  });
+
+api
+  .saveUserInfo()
+  .then((result) => {
+    console.log(result);
+  })
+  .catch((err) => {
+    console.error(err); // log the error to the console
+  });
+
+api
+  .createNewCard()
+  .then((result) => {
+    console.log(result);
+  })
+  .catch((err) => {
+    console.error(err); // log the error to the console
+  });

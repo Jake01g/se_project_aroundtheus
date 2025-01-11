@@ -11,9 +11,38 @@ class Api {
     return Promise.reject(`Error: ${res.status}`);
   }
 
-  getInitialCards() {
+  async getInitialCards() {
     return fetch(`${this._baseUrl}/cards`, {
       headers: this._headers,
+    }).then(this._checkResponse);
+  }
+
+  async getUserinfo() {
+    return fetch(`${this._baseUrl}/users/me`, {
+      headers: this._headers,
+    }).then(this._checkResponse);
+  }
+
+  async saveUserInfo(name, about, avatar) {
+    return fetch(`${this._baseUrl}/users/me`, {
+      method: "PATCH",
+      headers: this._headers,
+      body: JSON.stringify({
+        name: name,
+        about: about,
+        avatar: avatar,
+      }),
+    }).then(this._checkResponse);
+  }
+
+  async createNewCard(name, link) {
+    return fetch(`${this._baseUrl}/cards`, {
+      method: "POST",
+      headers: this._headers,
+      body: JSON.stringify({
+        name: name,
+        link: link,
+      }),
     }).then(this._checkResponse);
   }
 }
