@@ -161,6 +161,11 @@
   opacity: 0.2;
 }
 
+.modal__label {
+  width: 100%;
+  display: block;
+  position: relative;
+}
 @media screen and (max-width: 630px) {
   .modal__form {
     width: 238px;
