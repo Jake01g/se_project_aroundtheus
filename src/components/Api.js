@@ -35,13 +35,48 @@ class Api {
     }).then(this._checkResponse);
   }
 
-  async createNewCard(name, link) {
+  async createCard(name, link) {
     return fetch(`${this._baseUrl}/cards`, {
       method: "POST",
       headers: this._headers,
       body: JSON.stringify({
         name: name,
         link: link,
+      }),
+    }).then(this._checkResponse);
+  }
+
+  async handleDeleteCard(cardId) {
+    return fetch(`${this._baseUrl}/cards/${cardId}`, {
+      method: "DELETE",
+      headers: this._headers,
+    }).then(this._checkResponse);
+  }
+
+  async changeLikeStatus(cardId, isLiked) {
+    return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
+      method: isLiked ? "PUT" : "DELETE",
+      headers: this._headers,
+    }).then(this._checkResponse);
+  }
+
+  async editProfile(name, about) {
+    return fetch(`${this._baseUrl}/users/me`, {
+      method: "PATCH",
+      headers: this._headers,
+      body: JSON.stringify({
+        name: name,
+        about: about,
+      }),
+    }).then(this._checkResponse);
+  }
+
+  async editAvatar({ avatar }) {
+    return fetch(`${this._baseUrl}/users/avatar`, {
+      method: "PATCH",
+      headers: this._headers,
+      body: JSON.stringify({
+        avatar: avatar,
       }),
     }).then(this._checkResponse);
   }

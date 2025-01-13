@@ -13,6 +13,8 @@ import PopupWithForm from "../components/PopupWithForm.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import UserInfo from "../components/UserInfo.js";
 import { api } from "../components/Api.js";
+import Api from "../components/Api.js";
+import PopupWithConfirm from "../components/PopupConfirm.js";
 
 /* -------------------------------------------------------------------------- */
 /*                                  Elements                                  */
@@ -33,14 +35,16 @@ function getCardElement(data) {
   return card.getView();
 }
 
-const cardSection = new Section({
-  renderer: (item) => {
-    const cardEl = getCardElement(item);
-    cardSection.addItem(cardEl);
+const cardSection = new Section(
+  {
+    items: initialCards,
+    renderer: (item) => {
+      const cardEl = createCard(item);
+      cardSection.addItem(cardEl);
+    },
   },
-  selector: selectors.cardSelection,
-});
-cardSection.renderItems(initialCards);
+  ".cards__list"
+);
 
 const addCardModal = new PopupWithForm(
   "#add-card-modal",
@@ -130,7 +134,16 @@ api
   });
 
 api
-  .createNewCard()
+  .createCard()
+  .then((result) => {
+    console.log(result);
+  })
+  .catch((err) => {
+    console.error(err); // log the error to the console
+  });
+
+api
+  .handleDeleteCard()
   .then((result) => {
     console.log(result);
   })
