@@ -59,10 +59,20 @@ function openPreviewModal(cardData) {
   imageModal.open(cardData);
 }
 
-const profileModal = new PopupWithForm(
-  "#profile-edit-modal",
-  handleProfileFormSubmit
-);
+const profileModal = new PopupWithForm("#profile-edit-modal", (data) => {
+  profileModal.renderLoadingModal(true);
+  api
+    .editProfile(data.name, data.description)
+    .then((updatedUserInfo) => {
+      userInfo.setUserInfo({
+        userName: updatedUserInfo.name,
+        userJob: updatedUserInfo.about,
+      });
+      profileModal.close();
+    })
+    .catch((err) => console.error(err))
+    .finally(() => profileModal.renderLoadingModal(false));
+});
 profileModal.setEventListeners();
 
 /* -------------------------------------------------------------------------- */
