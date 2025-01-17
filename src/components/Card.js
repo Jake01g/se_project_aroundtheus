@@ -53,4 +53,8 @@ export default class Card {
 
     return this._cardElement;
   }
+
+  removeCard() {
+    this._cardElement.remove();
+  }
 }
