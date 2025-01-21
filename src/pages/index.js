@@ -5,7 +5,7 @@ import Section from "../components/Section.js";
 import {
   initialCards,
   config,
-  profileEditForm,
+  //profileEditForm,
   addCardFormElement,
   selectors,
 } from "../utils/constants.js";
@@ -13,7 +13,6 @@ import PopupWithForm from "../components/PopupWithForm.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import UserInfo from "../components/UserInfo.js";
 import { api } from "../components/Api.js";
-import Api from "../components/Api.js";
 import PopupWithConfirm from "../components/PopupConfirm.js";
 
 /* -------------------------------------------------------------------------- */
@@ -153,4 +152,38 @@ function handleDeleteModal(getCardElement) {
       .finally(() => deleteModal.renderLoadingModal(false));
   });
   deleteModal.open();
+}
+
+const enableValidation = (config) => {
+  const formList = Array.from(document.querySelectorAll(config.formSelector));
+  formList.forEach((formElement) => {
+    const validator = new FormValidator(config, formElement);
+    const formName = formElement.getAttribute("name");
+    formValidators[formName] = validator;
+    validator.enableValidation();
+  });
+};
+
+enableValidation(config);
+
+formValidators["avatar-form"].disableButton();
+
+function handleCardLike(getCardElement, cardId, isLiked) {
+  api
+    .changeLikeStatus(cardId, isLiked)
+    .then((updatedCard) => {
+      getCardElement.setIsLiked(updatedCard.isLiked);
+    })
+    .catch((err) => console.error(err));
+}
+
+function renderCardsAfterUserInfo() {
+  return Promise.all([api.getInitialCards(), api.getUserinfo()]).then(
+    ([cards, userData]) => {
+      cardSection.renderItems(cards);
+      userInfo.setUserInfo({
+        name: userData.name,
+      });
+    }
+  );
 }

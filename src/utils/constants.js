@@ -24,7 +24,7 @@ export const initialCards = [
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
   },
 ];
-export const profileEditForm = document.querySelector(".modal__form");
+//export const profileEditForm = document.querySelector(".modal__form");
 export const addCardFormElement = document.querySelector("#add-card-form");
 
 export const config = {
@@ -33,6 +33,7 @@ export const config = {
   inactiveButtonClass: "modal__button-disabled",
   inputErrorClass: "modal__input_type_error",
   errorClass: "modal__error_visible",
+  formSelector: "modal__form",
 };
 
 export const selectors = {
