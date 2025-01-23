@@ -1,32 +1,32 @@
-class Api {
+export default class Api {
   constructor(options) {
-    this._headers = options.headers;
-    this._baseUrl = options.baseUrl;
+    this.headers = options.headers;
+    this.baseUrl = options.baseUrl;
   }
 
   _checkResponse(res) {
-    if (res.ok) {
-      return res.json();
+    if (!res.ok) {
+      return Promise.reject(`Error: ${res.status}`);
     }
-    return Promise.reject(`Error: ${res.status}`);
+    return res.json();
   }
 
-  async getInitialCards() {
-    return fetch(`${this._baseUrl}/cards`, {
-      headers: this._headers,
+  getInitialCards() {
+    return fetch(`${this.baseUrl}/cards`, {
+      headers: this.headers,
     }).then(this._checkResponse);
   }
 
-  async getUserinfo() {
-    return fetch(`${this._baseUrl}/users/me`, {
-      headers: this._headers,
+  getUserinfo() {
+    return fetch(`${this.baseUrl}/users/me`, {
+      headers: this.headers,
     }).then(this._checkResponse);
   }
 
-  async saveUserInfo(name, about, avatar) {
-    return fetch(`${this._baseUrl}/users/me`, {
+  saveUserInfo(name, about, avatar) {
+    return fetch(`${this.baseUrl}/users/me`, {
       method: "PATCH",
-      headers: this._headers,
+      headers: this.headers,
       body: JSON.stringify({
         name: name,
         about: about,
@@ -35,10 +35,10 @@ class Api {
     }).then(this._checkResponse);
   }
 
-  async createCard(name, link) {
-    return fetch(`${this._baseUrl}/cards`, {
+  getCardElement(name, link) {
+    return fetch(`${this.baseUrl}/cards`, {
       method: "POST",
-      headers: this._headers,
+      headers: this.headers,
       body: JSON.stringify({
         name: name,
         link: link,
@@ -46,21 +46,21 @@ class Api {
     }).then(this._checkResponse);
   }
 
-  async handleDeleteCard(cardId) {
+  handleDeleteCard(cardId) {
     return fetch(`${this._baseUrl}/cards/${cardId}`, {
       method: "DELETE",
-      headers: this._headers,
+      headers: this.headers,
     }).then(this._checkResponse);
   }
 
-  async changeLikeStatus(cardId, isLiked) {
-    return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
+  changeLikeStatus(cardId, isLiked) {
+    return fetch(`${this.baseUrl}/cards/${cardId}/likes`, {
       method: isLiked ? "PUT" : "DELETE",
-      headers: this._headers,
+      headers: this.headers,
     }).then(this._checkResponse);
   }
 
-  async editProfile(name, about) {
+  editProfile(name, about) {
     return fetch(`${this._baseUrl}/users/me`, {
       method: "PATCH",
       headers: this._headers,
@@ -71,7 +71,7 @@ class Api {
     }).then(this._checkResponse);
   }
 
-  async editAvatar({ avatar }) {
+  editAvatar({ avatar }) {
     return fetch(`${this._baseUrl}/users/avatar`, {
       method: "PATCH",
       headers: this._headers,
@@ -82,7 +82,7 @@ class Api {
   }
 }
 
-export const api = new Api({
+const api = new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1",
   headers: {
     authorization: "00971118-9fba-418f-9a4a-7fa64165e057",
