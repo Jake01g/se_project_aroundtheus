@@ -47,7 +47,7 @@ export default class Api {
   }
 
   handleDeleteCard(cardId) {
-    return fetch(`${this._baseUrl}/cards/${cardId}`, {
+    return fetch(`${this.baseUrl}/cards/${cardId}`, {
       method: "DELETE",
       headers: this.headers,
     }).then(this._checkResponse);
@@ -61,31 +61,24 @@ export default class Api {
   }
 
   editProfile(name, about) {
-    return fetch(`${this._baseUrl}/users/me`, {
+    console.log(name, about);
+    return fetch(`${this.baseUrl}/users/me`, {
       method: "PATCH",
-      headers: this._headers,
+      headers: this.headers,
       body: JSON.stringify({
-        name: name,
-        about: about,
+        name,
+        about,
       }),
     }).then(this._checkResponse);
   }
 
   editAvatar({ avatar }) {
-    return fetch(`${this._baseUrl}/users/avatar`, {
+    return fetch(`${this.baseUrl}/users/me/avatar`, {
       method: "PATCH",
-      headers: this._headers,
+      headers: this.headers,
       body: JSON.stringify({
         avatar: avatar,
       }),
     }).then(this._checkResponse);
   }
 }
-
-const api = new Api({
-  baseUrl: "https://around-api.en.tripleten-services.com/v1",
-  headers: {
-    authorization: "00971118-9fba-418f-9a4a-7fa64165e057",
-    "Content-Type": "application/json",
-  },
-});
