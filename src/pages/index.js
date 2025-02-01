@@ -2,13 +2,7 @@ import "./index.css";
 import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
 import Section from "../components/Section.js";
-import {
-  initialCards,
-  config,
-  // profileEditForm,
-  // addCardFormElement,
-  // selectors,
-} from "../utils/constants.js";
+import { initialCards, config } from "../utils/constants.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import UserInfo from "../components/UserInfo.js";
@@ -16,19 +10,7 @@ import Api from "../components/Api.js";
 
 import PopupConfirm from "../components/PopupConfirm.js";
 
-/* -------------------------------------------------------------------------- */
-/*                                  Elements                                  */
-/* -------------------------------------------------------------------------- */
 const addNewCardButton = document.querySelector(".profile__add-button");
-//const editFormValidator = new FormValidator(config, profileEditForm);
-//const addFormValidator = new FormValidator(config, addCardFormElement);
-
-//editFormValidator.enableValidation();
-//addFormValidator.enableValidation();
-
-/* -------------------------------------------------------------------------- */
-/*                                  Functions                                 */
-/* -------------------------------------------------------------------------- */
 
 const api = new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1",
@@ -123,7 +105,7 @@ const profileAvatar = ".profile__image";
 
 const userInfo = new UserInfo({
   nameSelector: profileName,
-  jobSelector: profileDescription,
+  aboutSelector: profileDescription,
   avatarSelector: profileAvatar,
 });
 
@@ -131,7 +113,7 @@ const deleteModal = new PopupConfirm("#remove-card-modal");
 deleteModal.setEventListeners();
 
 function handleDeleteModal(card) {
-  deleteModal.setSubmitFunction(() => {
+  deleteModal.setDeleteFunction(() => {
     deleteModal.renderLoadingModal(true);
     api
       .handleDeleteCard(card._id)
@@ -180,7 +162,7 @@ function renderCardsAfterUserInfo() {
         name: userData.name,
         about: userData.about,
       });
-      userInfo.setUserAvatar({
+      userInfo.setAvatar({
         avatar: userData.avatar,
       });
     }
@@ -196,7 +178,7 @@ const avatarModal = new PopupWithForm("#avatar-modal", (data) => {
       avatar: data.avatar,
     })
     .then((updatedAvatarInfo) => {
-      userInfo.setUserAvatar(updatedAvatarInfo);
+      userInfo.setAvatar(updatedAvatarInfo);
       avatarModal.close();
       formValidators["avatar-modal"].disableSubmitButton();
     })

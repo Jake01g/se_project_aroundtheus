@@ -5,17 +5,9 @@ export default class PopupConfirm extends Popup {
     super(popupSelector);
     this._form = this._popup.querySelector(".modal__form");
   }
-  setSubmitFunction(submitFnc) {
-    this._submitFunction = submitFnc;
-  }
 
-  setEventListeners() {
-    super.setEventListeners();
-    console.log(this._popup, this._form);
-    this._form.addEventListener("submit", (evt) => {
-      evt.preventDefault();
-      this._submitFunction();
-    });
+  setDeleteFunction(submitDelete) {
+    this._submitFunction = submitDelete;
   }
 
   renderLoadingModal(isLoading) {
@@ -25,5 +17,13 @@ export default class PopupConfirm extends Popup {
     } else {
       submitButton.textContent = "Yes";
     }
+  }
+
+  setEventListeners() {
+    super.setEventListeners();
+    this._form.addEventListener("submit", (evt) => {
+      evt.preventDefault();
+      this._submitFunction();
+    });
   }
 }

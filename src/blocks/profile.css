@@ -10,7 +10,7 @@
     "title button"
     "description description";
   grid-template-columns: minmax(auto, 375px) auto;
-  grid-gap: 20px 10px;
+  grid-gap: 16px 17px;
   padding: 0;
   align-items: center;
 }
@@ -113,6 +113,12 @@
   left: 0;
   bottom: 0;
   right: 0;
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: 50% 50%;
+  margin-right: 20px;
 }
 
 .avatar__edit-button:hover {
