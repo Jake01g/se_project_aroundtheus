@@ -155,20 +155,18 @@ function handleCardLike(card, cardId, isLiked) {
 }
 
 function renderCardsAfterUserInfo() {
-  return Promise.all([api.getInitialCards(), api.getUserinfo()]).then(
-    ([cards, userData]) => {
+  return Promise.all([api.getInitialCards(), api.getUserinfo()])
+    .then(([cards, userData]) => {
       cardSection.renderItems(cards);
       userInfo.setUserInfo({
         name: userData.name,
         about: userData.about,
       });
-      userInfo
-        .setAvatar({
-          avatar: userData.avatar,
-        })
-        .catch((err) => console.error(err));
-    }
-  );
+      userInfo.setAvatar({
+        avatar: userData.avatar,
+      });
+    })
+    .catch((err) => console.error(err));
 }
 
 renderCardsAfterUserInfo();
