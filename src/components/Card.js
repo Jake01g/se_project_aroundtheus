@@ -29,7 +29,7 @@ export default class Card {
   _setEventListeners() {
     this.likeButton = this._element.querySelector(".card__like-button");
     this.likeButton.addEventListener("click", () => {
-      this._handleLikeIcon(this, this._id, !this._isLiked);
+      this._handleCardLike(this, this._id, !this._isLiked);
     });
     this.deleteButton = this._element.querySelector(".card__delete-button");
     this.deleteButton.addEventListener("click", () => {

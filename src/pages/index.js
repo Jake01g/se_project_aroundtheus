@@ -86,7 +86,7 @@ const profileModal = new PopupWithForm("#profile-edit-modal", (data) => {
 openProfileEditButton.addEventListener("click", () => {
   const currentUserData = userInfo.getUserInfo();
   profileModal.setInputValues({
-    title: currentUserData.name,
+    name: currentUserData.name,
     description: currentUserData.about,
   });
   profileModal.open();
@@ -162,9 +162,11 @@ function renderCardsAfterUserInfo() {
         name: userData.name,
         about: userData.about,
       });
-      userInfo.setAvatar({
-        avatar: userData.avatar,
-      });
+      userInfo
+        .setAvatar({
+          avatar: userData.avatar,
+        })
+        .catch((err) => console.error(err));
     }
   );
 }
@@ -180,7 +182,6 @@ const avatarModal = new PopupWithForm("#avatar-modal", (data) => {
     .then((updatedAvatarInfo) => {
       userInfo.setAvatar(updatedAvatarInfo);
       avatarModal.close();
-      formValidators["avatar-modal"].disableSubmitButton();
     })
     .catch((err) => console.error(err))
     .finally(() => avatarModal.renderLoadingModal(false));
