@@ -36,10 +36,12 @@ Svg images:
 - ![Profile add button](https://github.com/Jake01g/se_project_aroundtheus/blob/main/images/PlusWhite.svg)
 - ![Card heart Vector](https://github.com/Jake01g/se_project_aroundtheus/blob/main/images/VectorBlack.svg)
 
-#Project Video and Page Links: Video:
+#Project Videos and Page Links:
 
 Video 1 (overview): https://drive.google.com/file/d/1cSXHuNPVdmY8D_wChvz6kLQgOlvBClCA/view?usp=drive_link
 
 Video 2 (Had to split up) https://drive.google.com/file/d/1sGRj-jmRJnK7bCBJahWJY0yVW_BJLspj/view?usp=drive_link
+
+Video 3 (updated capabilities from Sprint 9): https://youtu.be/m_2biG_xlkE?si=7M6ZlJJjc8FKaIaw
 
 Github Page: https://jake01g.github.io/se_project_aroundtheus/
